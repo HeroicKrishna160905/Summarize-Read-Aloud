@@ -2,6 +2,11 @@ import streamlit as st
 from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 
+
+# Authenticate for gated Hugging Face models
+from huggingface_hub import login
+login(st.secrets["HUGGINGFACE_TOKEN"])
+
 # Summarizer setup
 @st.cache_resource
 def load_mistral():
